@@ -152,4 +152,20 @@ public class Main {
     book.setAvailable(false);
     System.out.println("Loan successfully registered.");
 }
+    public static void returnLoan(String loanId) {
+    for (Loan l : loans) {
+        if (l.getLoanId().equals(loanId)) {
+            if (l.getStatus().equals("RETURNED")) {
+                System.out.println("This loan was already returned.");
+                return;
+            }
+            l.setStatus("RETURNED");
+            l.getBook().setAvailable(true);
+            System.out.println("Book successfully returned.");
+            return;
+        }
+    }
+    System.out.println("Loan not found.");
+}
+    
 }
