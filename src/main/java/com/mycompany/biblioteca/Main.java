@@ -10,8 +10,68 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Aquí irá el menú (Fase 8)
-    }
+    int option;
+    do {
+        System.out.println("\n===== LIBRARY MANAGEMENT SYSTEM =====");
+        System.out.println("1. Register client");
+        System.out.println("2. List clients");
+        System.out.println("3. Search client");
+        System.out.println("4. Update client");
+        System.out.println("5. Delete client");
+        System.out.println("6. Register book");
+        System.out.println("7. List books");
+        System.out.println("8. Search book");
+        System.out.println("9. Update book");
+        System.out.println("10. Delete book");
+        System.out.println("11. Register loan");
+        System.out.println("12. Return book");
+        System.out.println("13. List active loans");
+        System.out.println("0. Exit");
+        System.out.print("Choose an option: ");
+        option = Integer.parseInt(sc.nextLine());
+
+        switch (option) {
+            case 1 -> createClient();
+            case 2 -> listClients();
+            case 3 -> {
+                System.out.print("Enter client ID: ");
+                Client c = searchClient(sc.nextLine());
+                System.out.println(c != null ? c : "Client not found.");
+            }
+            case 4 -> {
+                System.out.print("Enter client ID: ");
+                updateClient(sc.nextLine());
+            }
+            case 5 -> {
+                System.out.print("Enter client ID: ");
+                deleteClient(sc.nextLine());
+            }
+            case 6 -> createBook();
+            case 7 -> listBooks();
+            case 8 -> {
+                System.out.print("Enter book code: ");
+                Book b = searchBook(sc.nextLine());
+                System.out.println(b != null ? b : "Book not found.");
+            }
+            case 9 -> {
+                System.out.print("Enter book code: ");
+                updateBook(sc.nextLine());
+            }
+            case 10 -> {
+                System.out.print("Enter book code: ");
+                deleteBook(sc.nextLine());
+            }
+            case 11 -> createLoan();
+            case 12 -> {
+                System.out.print("Enter loan ID: ");
+                returnLoan(sc.nextLine());
+            }
+            case 13 -> listLoans();
+            case 0 -> System.out.println("Goodbye!");
+            default -> System.out.println("Invalid option.");
+        }
+    } while (option != 0);
+}
     public static void createClient() {
     System.out.println("--- Register New Client ---");
     System.out.print("ID: ");
