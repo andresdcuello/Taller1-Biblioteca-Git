@@ -35,4 +35,13 @@ public class Main {
         System.out.println(c);
     }
 }
+    public static Client searchClient(String id) {
+    for (Client c : clients) {
+        if (c.getId().equals(id)) {
+            return c;
+        }
+    }
+    return null;
+}
+    
 }
