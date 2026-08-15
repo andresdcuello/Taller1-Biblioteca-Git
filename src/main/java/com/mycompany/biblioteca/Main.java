@@ -58,4 +58,13 @@ public class Main {
     c.setEmail(sc.nextLine());
     System.out.println("Client successfully updated.");
 }
+    public static void deleteClient(String id) {
+    Client c = searchClient(id);
+    if (c == null) {
+        System.out.println("Client not found.");
+        return;
+    }
+    clients.remove(c);
+    System.out.println("Client successfully deleted.");
+}
 }
