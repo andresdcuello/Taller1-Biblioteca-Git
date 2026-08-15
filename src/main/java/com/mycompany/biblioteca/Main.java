@@ -83,5 +83,15 @@ public class Main {
     books.add(book);
     System.out.println("Book successfully registered.");
 }
+    public static void listBooks() {
+    if (books.isEmpty()) {
+        System.out.println("No books registered.");
+        return;
+    }
+    System.out.println("--- Book List ---");
+    for (Book b : books) {
+        System.out.println(b);
+    }
+}
     
 }
