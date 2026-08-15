@@ -114,5 +114,13 @@ public class Main {
     b.setAuthor(sc.nextLine());
     System.out.println("Book successfully updated.");
 }
-    
+    public static void deleteBook(String code) {
+    Book b = searchBook(code);
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+    books.remove(b);
+    System.out.println("Book successfully deleted.");
+}
 }
