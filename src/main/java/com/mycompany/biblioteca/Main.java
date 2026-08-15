@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -67,4 +68,20 @@ public class Main {
     clients.remove(c);
     System.out.println("Client successfully deleted.");
 }
+    public static void createBook() {
+    System.out.println("--- Register New Book ---");
+    System.out.print("Code: ");
+    String code = sc.nextLine();
+    System.out.print("Title: ");
+    String title = sc.nextLine();
+    System.out.print("Publication Year: ");
+    int year = Integer.parseInt(sc.nextLine());
+    System.out.print("Author: ");
+    String author = sc.nextLine();
+
+    Book book = new Book(code, title, year, author);
+    books.add(book);
+    System.out.println("Book successfully registered.");
+}
+    
 }
