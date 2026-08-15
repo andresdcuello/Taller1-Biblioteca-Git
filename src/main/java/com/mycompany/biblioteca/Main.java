@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -66,5 +67,60 @@ public class Main {
     }
     clients.remove(c);
     System.out.println("Client successfully deleted.");
+}
+    public static void createBook() {
+    System.out.println("--- Register New Book ---");
+    System.out.print("Code: ");
+    String code = sc.nextLine();
+    System.out.print("Title: ");
+    String title = sc.nextLine();
+    System.out.print("Publication Year: ");
+    int year = Integer.parseInt(sc.nextLine());
+    System.out.print("Author: ");
+    String author = sc.nextLine();
+
+    Book book = new Book(code, title, year, author);
+    books.add(book);
+    System.out.println("Book successfully registered.");
+}
+    public static void listBooks() {
+    if (books.isEmpty()) {
+        System.out.println("No books registered.");
+        return;
+    }
+    System.out.println("--- Book List ---");
+    for (Book b : books) {
+        System.out.println(b);
+    }
+}
+    public static Book searchBook(String code) {
+    for (Book b : books) {
+        if (b.getCode().equals(code)) {
+            return b;
+        }
+    }
+    return null;
+}
+    public static void updateBook(String code) {
+    Book b = searchBook(code);
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+    System.out.println("--- Update Book ---");
+    System.out.print("New title (current: " + b.getTitle() + "): ");
+    b.setTitle(sc.nextLine());
+    System.out.print("New author (current: " + b.getAuthor() + "): ");
+    b.setAuthor(sc.nextLine());
+    System.out.println("Book successfully updated.");
+}
+    public static void deleteBook(String code) {
+    Book b = searchBook(code);
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+    books.remove(b);
+    System.out.println("Book successfully deleted.");
 }
 }
