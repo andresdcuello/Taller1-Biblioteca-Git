@@ -101,5 +101,18 @@ public class Main {
     }
     return null;
 }
+    public static void updateBook(String code) {
+    Book b = searchBook(code);
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+    System.out.println("--- Update Book ---");
+    System.out.print("New title (current: " + b.getTitle() + "): ");
+    b.setTitle(sc.nextLine());
+    System.out.print("New author (current: " + b.getAuthor() + "): ");
+    b.setAuthor(sc.nextLine());
+    System.out.println("Book successfully updated.");
+}
     
 }
