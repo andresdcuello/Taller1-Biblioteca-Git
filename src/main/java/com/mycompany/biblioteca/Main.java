@@ -25,4 +25,14 @@ public class Main {
     clients.add(client);
     System.out.println("Client successfully registered.");
 }
+    public static void listClients() {
+    if (clients.isEmpty()) {
+        System.out.println("No clients registered.");
+        return;
+    }
+    System.out.println("--- Client List ---");
+    for (Client c : clients) {
+        System.out.println(c);
+    }
+}
 }
